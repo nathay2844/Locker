@@ -32,7 +32,7 @@ function consume_reset_token(string $email, string $token): bool
     $stored = $row->fetchColumn();
     if (!$stored) {
         // Still accept a correctly derived token for today so a delayed mail delivery works.
-        return flase;
+        return false;
     }
     return hash_equals((string)$stored, $token);
 }
